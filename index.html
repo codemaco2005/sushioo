@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SUSHIO | Grand Opening Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#030303',
+                            dark: '#0a0a0a',
+                            card: '#121212',
+                            red: '#E60012',
+                            reddark: '#b3000e',
+                            gold: '#D4AF37',
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #030303;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(rgba(230, 0, 18, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glow-luxury {
+            box-shadow: 0 0 40px rgba(230, 0, 18, 0.15), 0 0 80px rgba(0, 0, 0, 0.9);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030303;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-white bg-pattern min-h-screen relative selection:bg-brand-red selection:text-white flex flex-col justify-between">
+
+    <!-- عنصر الصوت المحلي -->
+    <!-- قم بتغيير 'music.mp3' إلى اسم ملف الصوت الخاص بك في جهازك -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- زر التحكم بالموسيقى (دائري فاخر في الزاوية السفلى) -->
+    <div id="audio-container" class="fixed bottom-6 right-6 z-50 cursor-pointer transition-transform active:scale-95 hover:scale-110" onclick="toggleAudio()" title="Toggle Music">
+        <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-red/90 hover:bg-brand-red backdrop-blur-md flex items-center justify-center text-white shadow-2xl border border-white/20 glow-luxury">
+            <i id="audio-icon" class="fa-solid fa-volume-xmark text-lg md:text-xl"></i>
+        </div>
+    </div>
+
+    <!-- Intro Envelope / Gate Overlay -->
+    <div id="intro-overlay" class="fixed inset-0 z-50 bg-brand-black flex flex-col items-center justify-center p-6 transition-all duration-1000">
+        <div class="text-center w-full max-w-sm mx-auto space-y-6">
+            
+            <!-- Landscape Logo (Larger, No Frame, Mobile Optimized) -->
+            <div class="mx-auto w-72 md:w-80 flex items-center justify-center">
+                <img src="logo.jpeg" alt="SUSHIO Logo" class="max-h-20 md:max-h-28 w-auto object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]" onerror="this.src='https://via.placeholder.com/280x80/030303/ffffff?text=SUSHIO+LOGO'">
+            </div>
+
+            <div class="space-y-2">
+                <h2 class="text-[10px] md:text-xs tracking-[0.4em] text-brand-red font-semibold uppercase">Exclusive Invitation</h2>
+                <h1 class="text-3xl md:text-4xl font-cinzel font-bold tracking-wider text-white">GRAND OPENING</h1>
+                <p class="text-gray-400 text-[11px] md:text-xs tracking-[0.3em] uppercase font-montserrat">Dip. Bite. Vibe.</p>
+            </div>
+            
+            <div class="pt-4">
+                <button onclick="openInvitation()" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-red text-white font-cinzel font-bold text-xs md:text-sm tracking-[0.2em] uppercase rounded-full hover:bg-brand-reddark transition-all duration-300 glow-luxury cursor-pointer border border-white/10 active:scale-95">
+                    <span>Open Invitation</span>
+                    <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1.5 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Invitation Container -->
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 pointer-events-none w-full max-w-2xl mx-auto flex flex-col justify-between min-h-screen py-8 px-4 sm:px-6">
+        
+        <!-- Header / Landscape Logo (Larger, No Frame) -->
+        <header class="text-center pt-4">
+            <div class="flex items-center justify-center">
+                <img src="logo.jpeg" alt="SUSHIO Logo" class="max-h-16 md:max-h-20 w-auto object-contain mx-auto drop-shadow-[0_6px_12px_rgba(0,0,0,0.7)]" onerror="this.src='https://via.placeholder.com/240x70/030303/ffffff?text=SUSHIO+LOGO'">
+            </div>
+        </header>
+
+        <!-- Core Invitation Card Section -->
+        <section class="my-auto py-6">
+            <div class="bg-brand-card/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden glow-luxury">
+                <!-- Decorative Japanese Wave Pattern Corners -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-red/15 to-transparent pointer-events-none rounded-tr-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-brand-red/15 to-transparent pointer-events-none rounded-bl-3xl"></div>
+
+                <div class="text-center space-y-6 md:space-y-8 relative z-10">
+                    <div class="space-y-2">
+                        <span class="text-[10px] md:text-xs text-brand-red font-semibold tracking-[0.3em] uppercase">You Are Cordially Invited To Our</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-white tracking-wide">GRAND OPENING</h2>
+                        <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <!-- Date & Time Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-5 border-y border-white/10 text-center font-montserrat">
+                        <div class="space-y-1">
+                            <p class="text-[11px] text-gray-400 uppercase tracking-[0.2em]">Day</p>
+                            <p class="text-lg md:text-xl font-cinzel font-bold text-white">Tuesday</p>
+                        </div>
+                        <div class="space-y-1 sm:border-x border-white/10 py-2 sm:py-0">
+                            <p class="text-[11px] text-gray-400 uppercase tracking-[0.2em]">Date</p>
+                            <p class="text-lg md:text-xl font-cinzel font-bold text-brand-red">6 OCT 2026</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[11px] text-gray-400 uppercase tracking-[0.2em]">Time</p>
+                            <p class="text-lg md:text-xl font-cinzel font-bold text-white">7:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Location details -->
+                    <div class="space-y-2 pt-1">
+                        <div class="flex items-center justify-center gap-2 text-brand-red">
+                            <i class="fa-solid fa-location-dot text-base"></i>
+                            <span class="text-[11px] md:text-xs font-semibold uppercase tracking-[0.25em]">Location</span>
+                        </div>
+                        <p class="text-lg md:text-xl font-cinzel font-semibold text-white">Assiut, Al-Namis Street</p>
+                        <p class="text-xs md:text-sm text-gray-400 font-montserrat tracking-wide">In Front of Samakmak Restaurant</p>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="pt-2">
+                        <p class="text-[11px] text-gray-400 uppercase tracking-[0.25em] mb-3">Countdown To Opening</p>
+                        <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
+                            <div class="bg-black/60 px-2 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-white/10 backdrop-blur-md">
+                                <span id="days" class="text-xl sm:text-2xl md:text-3xl font-cinzel font-bold text-brand-red">00</span>
+                                <span class="block text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Days</span>
+                            </div>
+                            <div class="bg-black/60 px-2 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-white/10 backdrop-blur-md">
+                                <span id="hours" class="text-xl sm:text-2xl md:text-3xl font-cinzel font-bold text-white">00</span>
+                                <span class="block text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Hours</span>
+                            </div>
+                            <div class="bg-black/60 px-2 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-white/10 backdrop-blur-md">
+                                <span id="minutes" class="text-xl sm:text-2xl md:text-3xl font-cinzel font-bold text-white">00</span>
+                                <span class="block text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Mins</span>
+                            </div>
+                            <div class="bg-black/60 px-2 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-white/10 backdrop-blur-md">
+                                <span id="seconds" class="text-xl sm:text-2xl md:text-3xl font-cinzel font-bold text-white">00</span>
+                                <span class="block text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Secs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <p class="text-xs sm:text-sm italic text-gray-400 font-montserrat tracking-wide">"Japanese Flavors • A New Story In Assiut"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-[11px] text-gray-500 font-montserrat space-y-1.5 pb-2">
+            <p>© 2026 SUSHIO Restaurant. All Rights Reserved.</p>
+            <p class="text-[9px] tracking-widest uppercase">Designed for Exclusive Luxury Experience</p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const audioIcon = document.getElementById('audio-icon');
+        let isAudioPlaying = false;
+
+        function openInvitation() {
+            const overlay = document.getElementById('intro-overlay');
+            const mainContent = document.getElementById('main-content');
+            
+            // تشغيل الصوت فوراً عند فتح الدعوة
+            audio.play().then(() => {
+                isAudioPlaying = true;
+                audioIcon.className = 'fa-solid fa-volume-high text-lg md:text-xl';
+            }).catch(e => {
+                console.log("Audio play error:", e);
+            });
+
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.style.opacity = '1';
+                mainContent.classList.remove('pointer-events-none');
+            }, 1000);
+        }
+
+        function toggleAudio() {
+            if (isAudioPlaying) {
+                audio.pause();
+                audioIcon.className = 'fa-solid fa-volume-xmark text-lg md:text-xl';
+                isAudioPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    audioIcon.className = 'fa-solid fa-volume-high text-lg md:text-xl';
+                    isAudioPlaying = true;
+                }).catch(e => {
+                    console.log("Playback failed:", e);
+                });
+            }
+        }
+
+        // Countdown Timer Logic to Oct 6, 2026 19:00:00
+        const eventDate = new Date('October 6, 2026 19:00:00').getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('countdown').innerHTML = "<p class='col-span-4 text-brand-red font-cinzel font-bold text-lg'>The Event Has Started!</p>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
